@@ -14,6 +14,12 @@ export const fetchDataPerID = async (id) => {
 
 export const changeDonatedValue = async (id, projectObj) => {
     const response = await http.put(`projects/${id}`, projectObj);
-    return response.data;
+    return response;
+
+};
+
+export const createProject = async (projectObj) => {
+    const response = await http.post(`projects`, projectObj);
+    return response;
 
 }; 

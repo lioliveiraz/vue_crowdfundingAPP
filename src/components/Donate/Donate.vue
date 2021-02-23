@@ -39,9 +39,13 @@ export default {
       e.preventDefault();
       this.project["donated"] =
         parseInt(this.project["donated"]) + parseInt(this.donationValue);
-      await changeDonatedValue(this.project.id, this.project);
+      const res = await changeDonatedValue(this.project.id, this.project);
       this.donationValue = 0;
-      this.toast = "Thank you";
+      if (res.status === "201") {
+        this.toast = "Thank you";
+      } else {
+        this.toast = "Something went wrong. Try again later";
+      }
     },
   },
 };
