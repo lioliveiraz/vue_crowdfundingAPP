@@ -1,6 +1,6 @@
 <template>
   <form @submit="handleSubmit">
-    <p>{{ toast }}</p>
+    {{ toast }}
     <Input
       @getUserInput="getUserInput"
       :attributeObj="{
@@ -11,16 +11,6 @@
     />
 
     <p>{{ errors.name }}</p>
-
-    <Input
-      @getUserInput="getUserInput"
-      :attributeObj="{
-        type: 'text',
-        name: 'creator',
-        placeHolder: 'your name',
-      }"
-    />
-    <p>{{ errors.creator }}</p>
 
     <Input
       @getUserInput="getUserInput"
@@ -51,10 +41,14 @@ import Input from "./Input";
 import { handleDate } from "../../helper/helperFunc";
 import { validateInput } from "../../helper/validation";
 import { createProject } from "../../api/requests";
+import { mapState } from "vuex";
 
 export default {
   components: {
     Input,
+  },
+  computed: {
+    ...mapState("auth", ["username"]),
   },
   data() {
     return {
@@ -67,7 +61,11 @@ export default {
       toast: "",
     };
   },
-
+  mounted() {
+    if (this.username) {
+      this.createdProject["creator"] = this.username;
+    }
+  },
   methods: {
     getUserInput(inputvalue, inputName) {
       if (inputName === "goal") {

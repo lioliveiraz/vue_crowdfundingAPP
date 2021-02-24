@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { findMaxVallueDonation } from "../../helper/helperFunc";
+import { findMaxValueDonation } from "../../helper/helperFunc";
 import { changeDonatedValue } from "../../api/requests";
 
 export default {
@@ -17,13 +17,13 @@ export default {
   data() {
     return {
       donationValue: 0,
-      maxValue: findMaxVallueDonation(this.project.donated, this.project.goal),
+      maxValue: findMaxValueDonation(this.project.donated, this.project.goal),
       toast: "",
       toggleDisable: false,
     };
   },
   updated() {
-    this.maxValue = findMaxVallueDonation(
+    this.maxValue = findMaxValueDonation(
       this.project.donated,
       this.project.goal
     );

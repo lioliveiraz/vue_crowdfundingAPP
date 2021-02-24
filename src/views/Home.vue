@@ -22,6 +22,7 @@ import { findElementInString } from "../helper/helperFunc";
 import Filters from "../components/Filters/Filters";
 import Card from "../components/Card/Card";
 import SearchBar from "../components/Filters/SearchBar";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -30,19 +31,22 @@ export default {
     Card,
     SearchBar,
   },
+
   data() {
     return {
       projects: null,
       filteredProjects: null,
     };
   },
-
-  async mounted() {
+  async created() {
     const res = await fetchData();
     this.projects = res;
     this.filteredProjects = res;
   },
+  computed: { ...mapGetters("auth", ["isLoggedIn"]) },
   methods: {
+    ...mapActions("auth", ["logout"]),
+
     filterArrProjects(userInputSearchPjc) {
       this.filteredProjects = this.projects.filter(
         ({ name, creator }) =>

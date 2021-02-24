@@ -18,6 +18,7 @@ import Donate from "../components/Donate/Donate";
 
 import { fetchDataPerID } from "../api/requests";
 export default {
+  name: "Project",
   props: ["id"],
   components: { Card, Donate },
   data() {

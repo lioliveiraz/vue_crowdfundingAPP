@@ -22,4 +22,4 @@ export const createProject = async (projectObj) => {
     const response = await http.post(`projects`, projectObj);
     return response;
 
-}; 
+};

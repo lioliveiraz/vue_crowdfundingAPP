@@ -3,14 +3,21 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Project from "../views/Project.vue";
 import CreateProject from '../views/CreateProject.vue';
+import Callback from '../views/Callback.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: `/`,
     name: "Home",
     component: Home
+  },
+  {
+    path: `/oauth2/callback`,
+    name: "Callback",
+    component: Callback,
+    props: true
   },
   {
     path: "/project/:id",
