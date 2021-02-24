@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <p>{{ username }}</p>
+      <p>Hello, {{ username }}</p>
       <router-link to="/">Home</router-link> |
       <router-link v-if="isLoggedIn" :to="{ name: 'CreateProject' }"
         >Create your project</router-link
