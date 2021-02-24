@@ -38,7 +38,7 @@
 
 <script>
 import Input from "./Input";
-import { handleDate } from "../../helper/helperFunc";
+import { transformDateTypeInString } from "../../helper/helperFunc";
 import { validateInput } from "../../helper/validation";
 import { createProject } from "../../api/requests";
 import { mapState } from "vuex";
@@ -55,7 +55,7 @@ export default {
       createdProject: {
         donated: 0,
         image: "/placeholder.jpg",
-        date: handleDate(),
+        date: transformDateTypeInString(),
       },
       errors: {},
       toast: "",
