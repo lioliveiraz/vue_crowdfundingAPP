@@ -4,6 +4,10 @@
 ```
 npm install
 ```
+## Run the mocked database
+```
+npm run json-server
+```
 
 ### Compiles and hot-reloads for development
 ```
