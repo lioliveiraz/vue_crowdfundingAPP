@@ -1,22 +1,21 @@
 /**
-import { deleteRepeatedElementArr } from './helperFunc';
- * @function findMaxValueDonation
+ * @function findMaxValueToDonate
  * @param {number} donated 
  * @param {number} goal
  * @returns {number} 
  */
 
-export const findMaxValueDonation = (donated, goal) => {
+export const findMaxValueToDonate = (donated, goal) => {
     return goal - donated;
 };
 
 /**
- * @function findElementInString
+ * @function isElementInString
  * @param {string} el1 
  * @param {string} el2 
- * @returns {array}
+ * @returns {boolean}
  */
-export const findElementInString = (el1, el2) => {
+export const isElementInString = (el1, el2) => {
     return el1.toLowerCase().includes(el2.toLowerCase());
 };
 /**
@@ -29,10 +28,10 @@ export const deleteRepeatedElementArr = (array) => {
 };
 
 /**
- * @function handleDate
+ * @function transformDateTypeInString
  * @returns {string}
  */
-export const handleDate = () => {
+export const transformDateTypeInString = () => {
     return `${new Date().getFullYear()}-0${new Date().getMonth() + 1}-${new Date().getDate()}`;
 
 

@@ -18,7 +18,7 @@
 
 <script>
 import { fetchData } from "../api/requests";
-import { findElementInString } from "../helper/helperFunc";
+import { isElementInString } from "../helper/helperFunc";
 import Filters from "../components/Filters/Filters";
 import Card from "../components/Card/Card";
 import SearchBar from "../components/Filters/SearchBar";
@@ -50,8 +50,8 @@ export default {
     filterArrProjects(userInputSearchPjc) {
       this.filteredProjects = this.projects.filter(
         ({ name, creator }) =>
-          findElementInString(name, userInputSearchPjc) ||
-          findElementInString(creator, userInputSearchPjc)
+          isElementInString(name, userInputSearchPjc) ||
+          isElementInString(creator, userInputSearchPjc)
       );
     },
     sortPerMostRecent() {

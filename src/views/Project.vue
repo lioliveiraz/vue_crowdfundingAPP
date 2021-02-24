@@ -18,7 +18,7 @@
 <script>
 import Card from "../components/Card/Card";
 import Donate from "../components/Donate/Donate";
-import { findMaxValueDonation } from "../helper/helperFunc";
+import { findMaxValueToDonate } from "../helper/helperFunc";
 import { fetchDataPerID } from "../api/requests";
 export default {
   name: "Project",
@@ -35,7 +35,7 @@ export default {
     const data = await fetchDataPerID(this.id);
     this.project = data[0];
     this.isGoalAchieved =
-      findMaxValueDonation(this.project.donated, this.project.goal) === 0;
+      findMaxValueToDonate(this.project.donated, this.project.goal) === 0;
   },
   methods: {
     handleToggleDonate() {
