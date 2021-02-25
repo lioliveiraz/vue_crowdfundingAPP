@@ -44,6 +44,7 @@ import { createProject } from "../../api/requests";
 import { mapState } from "vuex";
 
 export default {
+  name: "Form",
   components: {
     Input,
   },
