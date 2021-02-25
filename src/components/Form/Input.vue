@@ -3,10 +3,10 @@
     <label>{{ attributeObj.name }}</label>
     <input
       :type="attributeObj.type"
-      :name="attributeObj.type"
+      :name="attributeObj.name"
       :placeholder="attributeObj.placeHolder"
       autofocus
-      v-model="currnetvalue"
+      v-model="currentValue"
       required
     />
   </div>
@@ -17,11 +17,11 @@ export default {
   props: ["attributeObj"],
   data() {
     return {
-      currnetvalue: "",
+      currentValue: "",
     };
   },
   updated() {
-    this.$emit("getUserInput", this.currnetvalue, this.attributeObj.name);
+    this.$emit("getUserInput", this.currentValue, this.attributeObj.name);
   },
 };
 </script>
